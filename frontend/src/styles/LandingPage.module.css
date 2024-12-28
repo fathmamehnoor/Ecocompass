@@ -1,0 +1,111 @@
+/* General Container Styles for Landing Page */
+.lcontainer {
+  border-radius: 2px;
+  background: rgba(245, 245, 245, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Playfair Display, -apple-system, Roboto, Helvetica, sans-serif;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100vh; /* Ensure it takes full height of the viewport */
+  justify-content: center; /* Center content vertically */
+}
+
+/* Main Heading and Subheading Styles */
+.lmainHeading {
+  font-size: 88px; /* Adjusted font size for better visibility */
+  font-weight: bold;
+  text-align: center; /* Centered text */
+  margin-top: 50px; /* Add margin to separate it from the top */
+}
+
+.lsubHeading {
+  font-size: 35px; /* Adjusted font size for better readability */
+  text-align: center; /* Centered text */
+  margin-top: 20px;
+  max-width: 80%; /* Prevent text from being too wide */
+}
+
+/* Call-to-Action Button */
+.lctaButton {
+  margin-top: 40px;
+  border-radius: 40px;
+  background: rgba(33, 202, 33, 1);
+  font-size: 20px;
+  color: #000;
+  font-weight: 500;
+  padding: 21px 44px;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lctaButton:hover {
+  background: rgba(28, 180, 28, 1);
+  transform: translateY(-2px);
+}
+
+.lctaButton:focus {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+/* Adjust Content Wrapper */
+.lcontentWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-left: 61px;
+  gap: 20px;
+}
+
+.lsection {
+  display: flex;
+  margin-bottom: 40px;
+  flex-direction: column; /* Align sections vertically */
+}
+
+/* Image and Text Column */
+.limageColumn {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 100%;
+}
+
+.lsectionImage {
+  aspect-ratio: 0.97;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  border-radius: 90px;
+  margin-top: 9px;
+  flex-grow: 1;
+  transition: transform 0.3s ease;
+}
+
+.lsectionImage:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .lcontainer {
+    padding-top: 60px; /* Adjust padding for smaller screens */
+  }
+
+  .lmainHeading {
+    font-size: 40px;
+  }
+
+  .lsubHeading {
+    font-size: 22px;
+  }
+
+  .lctaButton {
+    padding: 15px 30px;
+    font-size: 18px;
+  }
+}

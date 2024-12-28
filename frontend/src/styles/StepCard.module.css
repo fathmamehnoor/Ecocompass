@@ -1,0 +1,33 @@
+.stepCard {
+    border-radius: 54px;
+    background-color: rgba(136, 230, 136, 1);
+    box-shadow: 7px 7px 4px 5px rgba(0, 0, 0, 0.25);
+    flex-grow: 1;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+    width: 50%;
+    padding: 100px 52px;
+    margin-left: 80px; /* Adds space to the left of each card */
+  }
+  
+  .stepTitle {
+    font: 400 48px Playfair Display, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  
+  .stepDescription {
+    font: 400 21px Playfair Display, -apple-system, Roboto, Helvetica, sans-serif;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 991px) {
+    .stepCard {
+      margin-top: 40px;
+      padding: 100px 20px;
+      margin-left: 10px; /* Adjust the left margin for smaller screens */
+    }
+  
+    .stepTitle {
+      font-size: 40px;
+    }
+  }
+  

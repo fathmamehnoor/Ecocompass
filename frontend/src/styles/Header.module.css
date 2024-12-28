@@ -1,0 +1,55 @@
+.hheader {
+  position: sticky; /* Makes the header stick to the top while scrolling */
+  top: 0; /* Ensure it's at the very top of the viewport */
+  z-index: 1000; /* Ensures it stays above other content */
+  width: 100%; /* Full width */
+  max-width: 1800px; /* Set a max width to prevent header from stretching too wide */
+  margin: 0 auto; /* Centers the header horizontally within the viewport */
+  border-radius: 0; /* Remove border-radius for a flat top edge */
+  background-color: rgba(245, 245, 245, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between; /* Distribute space between logo and navigation links */
+  align-items: center; /* Vertically center the items */
+  padding: 10px 40px; /* Adjust padding for better height management */
+  border-bottom: 1px dashed rgba(152, 152, 152, 1); /* Flat border at the bottom */
+}
+
+.hlogo {
+  color: rgba(9, 154, 9, 1);
+  font-size: 36px;
+  margin-top: 0; /* Align logo vertically within the header */
+}
+
+.hnavigation {
+  display: flex; /* Horizontal layout for navigation links */
+  gap: 20px; /* Space between each link */
+  color: rgba(0, 0, 0, 1);
+  font-size: 24px;
+  align-items: center; /* Vertically center the links */
+}
+
+.hnavigation a {
+  text-decoration: none;
+  color: inherit; /* Matches the navigation color */
+  padding: 5px 10px; /* Adds clickable space around each link */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.hnavigation a:hover {
+  color: rgba(9, 154, 9, 1); /* Change color on hover */
+}
+
+@media (max-width: 991px) {
+  .hheader {
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .hnavigation {
+    gap: 15px; /* Reduce space between links for smaller screens */
+  }
+
+  .hnavigation a {
+    font-size: 20px; /* Reduce font size for smaller screens */
+  }
+}

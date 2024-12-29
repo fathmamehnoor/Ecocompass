@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "./components/Header";
+import Headerfileupload from "./components/Headerfileupload";
 import ESGScoringSection from "./components/ESGScoringSection";
 
 function App() {
   return (
     <div>
-      <Header />
+      <Headerfileupload />
       <ESGScoringSection />
     </div>
   );

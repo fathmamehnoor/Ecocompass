@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Headerfileupload = () => {
   return (
     <header style={styles.header}>
       <h1 style={styles.logo}>EcoCompass</h1>
@@ -38,4 +38,4 @@ const styles = {
   },
 };
 
-export default Header;
+export default Headerfileupload;

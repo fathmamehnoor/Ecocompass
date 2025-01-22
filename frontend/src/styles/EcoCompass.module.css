@@ -1,175 +1,223 @@
 .seccontainer {
-    border-radius: 2px;
-    background: rgba(245, 245, 245, 1);
-    display: flex;
-    padding: 0px 0 0; /* Reduced padding for a more compact layout */
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .seccontentWrapper {
-    display: flex;
-    width: 100%;
-    padding-left: 30px; /* Reduced padding for a more compact layout */
-    flex-direction: column;
-  }
-  
-  .secsection {
-    gap: 15px; /* Reduced gap for a tighter layout */
-    display: flex;
-    margin-bottom: 10px; /* Reduced margin for a more compact layout */
-    min-height: 12vh;
-    align-items: center;
-  }
-  
-  .secimageColumn {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 30%; /* Reduced width of the image column */
-  }
-  
-  .secsectionImage {
-    aspect-ratio: 0.97;
-    object-fit: contain;
-    object-position: center;
-    width: 80%; /* Reduced width of the image */
-    border-radius: 90px;
-    margin-top: 9px;
-    flex-grow: 1;
-    transition: transform 0.3s ease;
-  }
-  
-  .secsectionImage:hover {
-    transform: scale(1.05);
-  }
-  
-  .sectextColumn {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 70%; /* Reduced width of the text column */
-    margin-left: 15px; /* Reduced margin for tighter spacing */
-  }
-  
-  .sectextContent {
-    display: flex;
-    flex-direction: column;
-    font-family: Playfair Display, -apple-system, Roboto, Helvetica, sans-serif;
-    color: rgba(0, 0, 0, 1);
-  }
-  
-  .secheading {
-    font-size: 40px; /* Reduced heading size */
-    font-weight: 700;
-    margin-bottom: 20px; /* Reduced margin for tighter spacing */
-  }
-  
-  .secdescription {
-    font-size: 22px; /* Reduced font size for description */
-    font-weight: 400;
-    line-height: 1.4; /* Slightly reduced line height */
-  }
-  
-  /* Updated CTA Section */
-  .secctaSection {
-    background: #fff;
-    padding: 0px 0 0px; /* Further reduced padding */
-    min-height: 60vh; /* Reduced padding */
-    margin-top: 10px; /* Reduced margin for a more compact layout */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .secctaContent {
-    max-width: 1000px; /* Reduced max-width for CTA content */
-    margin: 0 auto;
-    width: 100%;
-    padding: 0 20px; /* Reduced padding */
-  }
-  
-  .secctaHeading {
-    font-size: 40px; /* Reduced heading size */
-    font-weight: 800;
-    color: #000;
-    margin-bottom: 30px; /* Reduced margin */
-  }
-  
-  .secctaText {
-    font-size: 24px; /* Reduced font size */
-    line-height: 1.6;
-    color: #000;
-    margin-bottom: 40px; /* Reduced margin */
-  }
-  
-  .secctaButton {
-    border-radius: 40px;
-    background: rgba(33, 202, 33, 1);
-    font-size: 18px; /* Reduced button font size */
-    color: #000;
-    font-weight: 500;
-    padding: 15px 35px; /* Reduced padding */
-    border: 2px solid #000;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .secctaButton:hover {
-    background: rgba(28, 180, 28, 1);
-    transform: translateY(-2px);
-  }
-  
-  .secctaButton:focus {
-    outline: 3px solid #000;
-    outline-offset: 2px;
+  border-radius: 2px;
+  background: rgba(245, 245, 245, 1);
+  display: flex;
+  padding: 0px 0 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.seccontentWrapper {
+  display: flex;
+  width: 100%;
+  padding-left: 30px;
+  flex-direction: column;
+}
+
+.secsection {
+  gap: 15px;
+  display: flex;
+  margin-bottom: 10px;
+  min-height: 12vh;
+  align-items: center;
+}
+
+.secimageColumn {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 30%;
+}
+
+.secsectionImage {
+  aspect-ratio: 0.97;
+  object-fit: contain;
+  object-position: center;
+  width: 100%; /* Make image width 100% for responsiveness */
+  max-width: 100%; /* Ensures image doesn't overflow */
+  border-radius: 90px;
+  margin-top: 9px;
+  flex-grow: 1;
+  transition: transform 0.3s ease;
+}
+
+.secsectionImage:hover {
+  transform: scale(1.05);
+}
+
+.sectextColumn {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 70%;
+  margin-left: 15px;
+}
+
+.sectextContent {
+  display: flex;
+  flex-direction: column;
+  font-family: Playfair Display, -apple-system, Roboto, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 1);
+}
+
+.secheading {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.secdescription {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* CTA Section */
+.secctaSection {
+  background: #fff;
+  padding: 0px 0 0px;
+  min-height: 60vh;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.secctaContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.secctaHeading {
+  font-size: 40px;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+.secctaText {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+.secctaButton {
+  border-radius: 40px;
+  background: rgba(33, 202, 33, 1);
+  font-size: 18px;
+  color: #000;
+  font-weight: 500;
+  padding: 15px 35px;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secctaButton:hover {
+  background: rgba(28, 180, 28, 1);
+  transform: translateY(-2px);
+}
+
+.secctaButton:focus {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+  .seccontainer {
+    padding-top: 60px;
   }
 
-  
-  
-  /* Media Queries */
-  @media (max-width: 991px) {
-    .seccontainer {
-      padding-top: 60px;
-    }
-  
-    .seccontentWrapper {
-      padding: 20px;
-    }
-  
-    .secsection {
-      flex-direction: column;
-      min-height: auto;
-    }
-  
-    .secimageColumn,
-    .sectextColumn {
-      width: 100%;
-      margin-left: 0;
-    }
-  
-    .secheading {
-      font-size: 30px;
-    }
-  
-    .secdescription {
-      font-size: 18px;
-    }
-  
-    .secctaSection {
-      padding: 0px 0px;
-      min-height: auto;
-    }
-  
-    .secctaHeading {
-      font-size: 30px;
-    }
-  
-    .secctaText {
-      font-size: 20px;
-    }
+  .seccontentWrapper {
+    padding: 20px;
   }
-  
+
+  .secsection {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .secimageColumn,
+  .sectextColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .secheading {
+    font-size: 30px;
+  }
+
+  .secdescription {
+    font-size: 18px;
+  }
+
+  .secctaSection {
+    padding: 0px;
+    min-height: auto;
+  }
+
+  .secctaHeading {
+    font-size: 30px;
+  }
+
+  .secctaText {
+    font-size: 20px;
+  }
+}
+
+/* Additional Media Query for smaller screens (mobile) */
+@media (max-width: 480px) {
+  .seccontainer {
+    padding: 10px; /* Added padding for smaller screens */
+  }
+
+  .seccontentWrapper {
+    padding: 10px;
+  }
+
+  .secsection {
+    gap: 10px;
+    margin-bottom: 15px;
+    min-height: auto;
+  }
+
+  .secimageColumn,
+  .sectextColumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .secsectionImage {
+    width: 100%;
+    max-width: 100%;
+    margin: 10px auto;
+  }
+
+  .secheading {
+    font-size: 26px;
+  }
+
+  .secdescription {
+    font-size: 16px;
+  }
+
+  .secctaHeading {
+    font-size: 28px;
+  }
+
+  .secctaText {
+    font-size: 18px;
+  }
+
+  .secctaButton {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}

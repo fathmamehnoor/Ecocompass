@@ -1,0 +1,92 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  /* Form styles */
+  .form {
+    background-color: #ffffe7;
+    border-radius: 20px;
+    padding: 2rem;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Heading styles */
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #000;
+  }
+  
+  /* Input group styles */
+  .inputGroup {
+    display: flex;
+    align-items: center;
+    border: 1px solid #28a745;
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+  }
+  
+  .icon {
+    font-size: 1.2rem;
+    color: #28a745;
+    margin-right: 0.5rem;
+  }
+  
+  .input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    color: #000;
+  }
+  
+  /* Select dropdown styles */
+  .select {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    color: #000;
+    background-color: transparent;
+  }
+  
+  /* Button styles */
+  .button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .button:hover {
+    background-color: #218838;
+  }
+  
+  /* Login text styles */
+  .loginText {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #000;
+  }
+  
+  .link {
+    color: #28a745;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  

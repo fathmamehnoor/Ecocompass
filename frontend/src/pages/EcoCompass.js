@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContentSection } from '../components/ContentSection';
 import { CallToAction } from '../components/CallToAction';
-import { Header } from '../components/Header';
+import Headerfileupload from '../components/Headerfileupload';
 import { contentData } from '../constants/contentData';
 import LandingPage from '../components/LandingPage'; // Import the LandingPage component
 import EcoCompassGuide from '../components/EcoCompassGuide';
@@ -11,7 +11,7 @@ export const EcoCompass = () => {
     return (
       <>
         {/* Header placed outside of the container */}
-        <Header />
+        <Headerfileupload />
         <div>
           {/* LandingPage component */}
           <LandingPage />

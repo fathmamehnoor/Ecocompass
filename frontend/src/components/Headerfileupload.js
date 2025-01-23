@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const Headerfileupload = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,9 +13,15 @@ const Headerfileupload = () => {
       <h1 style={styles.logo}>EcoCompass</h1>
       <nav>
         <ul style={isMenuOpen ? { ...styles.navList, ...styles.menuOpen } : styles.navList}>
-          <li>Home</li>
-          <li>About</li>
-          <li>Login</li>
+          <li>
+            <Link to="/" style={styles.navLink}>Home</Link> {/* Link for Home */}
+          </li>
+          <li>
+            <Link to="/about" style={styles.navLink}>About</Link> {/* Link for About */}
+          </li>
+          <li>
+            <Link to="/login" style={styles.navLink}>Login</Link> {/* Link for Login */}
+          </li>
         </ul>
       </nav>
       <div style={styles.hamburger} onClick={toggleMenu}>
@@ -34,13 +41,13 @@ const styles = {
     padding: "10px 20px",
     borderBottom: "1px solid #ccc",
     boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
-    width: "80%",
+    width: "100%", // Increased from 80% to 90%
     margin: "0 auto",
     backgroundColor: "#e9f8e9",
     borderRadius: "10px",
     marginTop: "10px",
     fontWeight: "bold",
-    position: "relative", // Added for positioning the hamburger menu
+    position: "relative",
   },
   logo: { color: "green", fontWeight: "bold", fontSize: "24px" },
   navList: {
@@ -48,8 +55,13 @@ const styles = {
     display: "flex",
     gap: "15px",
   },
+  navLink: {
+    textDecoration: "none",
+    color: "black",
+    fontWeight: "bold",
+  },
   hamburger: {
-    display: "none", // Hidden by default, shown in smaller screens
+    display: "none",
     flexDirection: "column",
     justifyContent: "space-between",
     width: "30px",
@@ -65,7 +77,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     position: "absolute",
-    top: "60px", // Position the dropdown below the header
+    top: "60px",
     right: "10px",
     backgroundColor: "#e9f8e9",
     padding: "10px",
@@ -73,18 +85,19 @@ const styles = {
   },
   "@media (max-width: 768px)": {
     header: {
-      padding: "10px 15px", // Reduced padding for mobile screens
+      padding: "10px 15px",
     },
     logo: {
-      fontSize: "20px", // Smaller font size for mobile
+      fontSize: "20px",
     },
     navList: {
-      display: "none", // Hide the nav on smaller screens by default
+      display: "none",
     },
     hamburger: {
-      display: "flex", // Display hamburger icon on small screens
+      display: "flex",
     },
   },
 };
+
 
 export default Headerfileupload;

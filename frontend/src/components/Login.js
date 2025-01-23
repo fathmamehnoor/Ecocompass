@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';  // Import Link component for routing
 import styles from '../styles/Login.module.css';
 import mailimg from "../assets/v1_17.png";
 import passimg from "../assets/v1_16.png";
@@ -11,7 +12,7 @@ const Login = () => {
         <form className={styles.form}>
           <div className={styles.inputGroup}>
             <label htmlFor="email" className={styles.icon}>
-              <img src={mailimg} alt="mail" style={{ width: '25px', height: '25px' }}  />
+              <img src={mailimg} alt="mail" style={{ width: '25px', height: '25px' }} />
             </label>
             <input
               type="email"
@@ -22,7 +23,7 @@ const Login = () => {
           </div>
           <div className={styles.inputGroup}>
             <label htmlFor="password" className={styles.icon}>
-              <img src={passimg} alt="pass" style={{ width: '25px', height: '25px' }}  />
+              <img src={passimg} alt="pass" style={{ width: '25px', height: '25px' }} />
             </label>
             <input
               type="password"
@@ -31,16 +32,16 @@ const Login = () => {
               className={styles.input}
             />
           </div>
+          {/* Replace <a> with Link component for navigation */}
           <div className={styles.forgotPassword}>
-            <a href="#" className={styles.link} >Forgot Password?</a>
+            <Link to="/forgot-password" className={styles.link}>Forgot Password?</Link>
           </div>
-          <button type="submit" className={styles.button}>
-            LOGIN
-          </button>
+          {/* Wrap the Login button with Link */}
+          <Link to="/companyhomepage" className={styles.button}>
+            <button type="button" className={styles.button}>LOGIN</button>
+          </Link>
           <p className={styles.footerText}>
-            Don't  have an account? <a href="#" className={styles.link}>Sign up</a>
-
-            
+            Don't have an account? <Link to="/signup" className={styles.link}>Sign up</Link>
           </p>
         </form>
       </div>

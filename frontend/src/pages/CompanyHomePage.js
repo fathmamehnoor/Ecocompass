@@ -4,6 +4,7 @@ import { CompanyHomePageBadgesCard } from "../components/CompanyHomePageBadgesCa
 import Headerfileupload from "../components/Headerfileupload";
 import { CompanyHomePageUploadSection } from "../components/CompanyHomePageUploadSection";
 import { FaArrowRight } from "react-icons/fa"; // Importing arrow icon
+import { Link } from 'react-router-dom'; 
 
 export function CompanyHomePage() {
   return (

@@ -4,6 +4,7 @@ import { EcoCompass } from "./pages/EcoCompass"; // Updated path for EcoCompass
 import './App.css'; // Import global styles if needed
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import ESGRanking from "./components/ESGRanking";
 import { CompanyHomePage } from "./pages/CompanyHomePage";
 import Analysis from "./pages/Analysis";
 import './styles/tailwind.css';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/companyhomepage" element={<CompanyHomePage />} />
         <Route path="/upload" element={<FileUpload />} />
         <Route path="/fileupload" element={<Analysis />} />
+        <Route path="esgranking" element={<ESGRanking />} />
 
       </Routes>
     </Router>

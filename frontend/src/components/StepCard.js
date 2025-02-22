@@ -9,5 +9,5 @@ const StepCard = ({ title, description }) => {
     </div>
   );
 };
+export { StepCard };
 
-export { StepCard }

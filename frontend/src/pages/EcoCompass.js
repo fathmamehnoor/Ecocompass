@@ -33,6 +33,6 @@ export const EcoCompass = () => {
           </div>
         </div>
         <Footer /> {/* Footer component added here */}
-      </>
-    );
+      </>
+    );
 };

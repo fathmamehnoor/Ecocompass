@@ -1,11 +1,13 @@
 import React from 'react';
-import styles from '../styles/StepCard.module.css';
+import styles from '../styles/StepCard.module.css'; // Import the styles for StepCard
 
-export const StepCard = ({ title, description }) => {
+const StepCard = ({ title, description }) => {
   return (
     <div className={styles.stepCard}>
-      <div className={styles.stepTitle}>{title}</div>
-      <div className={styles.stepDescription}>{description}</div>
+      <h2 className={styles.stepTitle}>{title}</h2>
+      <p className={styles.stepDescription}>{description}</p>
     </div>
   );
 };
+
+export { StepCard }

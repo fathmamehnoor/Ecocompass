@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ecocompassapp.views import register_user, login_user, get_user_data
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
+    path('register/', register_user, name='register'),
+    path('login/', login_user, name='login'),
+    path('user/', get_user_data, name='user_data')
 ]

@@ -1,33 +1,73 @@
+/* Container that holds all step cards */
+.gstepsContainer {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-evenly; /* Distribute cards evenly with equal space between them */
+  align-items: center; /* Center the cards vertically */
+  gap: 20px; /* Space between the cards */
+  flex-wrap: wrap; /* Allow wrapping if the screen is small */
+  margin-top: 20px; /* Space above the cards */
+  padding: 20px; /* Equal padding on all sides */
+  width: 100%; /* Full width to ensure it's aligned in the center */
+  box-sizing: border-box; /* Ensure padding doesn't affect width calculation */
+}
+
+/* Each step card */
 .stepCard {
-    border-radius: 54px;
-    background-color: rgba(136, 230, 136, 1);
-    box-shadow: 7px 7px 4px 5px rgba(0, 0, 0, 0.25);
-    flex-grow: 1;
-    color: rgba(0, 0, 0, 1);
-    text-align: center;
-    width: 50%;
-    padding: 100px 52px;
-    margin-left: 80px; /* Adds space to the left of each card */
+  background-color: #88e688; /* Light green background */
+  padding: 40px; /* Increased padding for consistent spacing */
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.25s cubic-bezier(0.17, 0.67, 0.69, 0.85); /* Smooth easing effect */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  color: black; /* Black text color for better contrast with light green background */
+  
+  width: 320px; /* Fixed width */
+  height: 500px; /* Fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Center each card inside its container */
+}
+
+.stepCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stepCard:active {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.25);
+  background-color: #78d678; /* Darker green on click */
+}
+
+/* Title (heading) */
+.stepTitle {
+  font-weight: bold; /* Bold font for heading */
+  font-size: x-large; /* X-large font size */
+  margin: 0;
+}
+
+/* Description */
+.stepDescription {
+  font-weight: normal; /* Normal font for description */
+  font-size: x-large; /* X-large font size */
+  margin-top: 10px; /* Space between title and description */
+}
+
+/* Ensure consistency across screen sizes */
+@media (max-width: 768px) {
+  .stepCard {
+    width: 90%; /* Adjust width for smaller screens */
+    height: auto; /* Allow flexible height */
+    padding: 30px; /* Reduce padding slightly */
   }
-  
-  .stepTitle {
-    font: 400 48px Playfair Display, -apple-system, Roboto, Helvetica, sans-serif;
+
+  .gstepsContainer {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    gap: 10px; /* Smaller gap for stacking */
+    padding: 10px; /* Adjust padding on smaller screens */
   }
-  
-  .stepDescription {
-    font: 400 21px Playfair Display, -apple-system, Roboto, Helvetica, sans-serif;
-    margin-top: 2rem;
-  }
-  
-  @media (max-width: 991px) {
-    .stepCard {
-      margin-top: 40px;
-      padding: 100px 20px;
-      margin-left: 10px; /* Adjust the left margin for smaller screens */
-    }
-  
-    .stepTitle {
-      font-size: 40px;
-    }
-  }
-  
+}

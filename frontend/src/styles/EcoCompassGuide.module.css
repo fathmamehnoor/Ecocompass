@@ -95,6 +95,37 @@
   }
 }
 
+/* Additional Media Query for mobile screens */
+@media (max-width: 480px) {
+  .gtitle {
+    font-size: 32px; /* Adjust title size for smaller screens */
+  }
+
+  .gsubtitle {
+    font-size: 18px; /* Adjust subtitle font size */
+    margin-top: 20px;
+  }
+
+  .gstepsContainer {
+    margin-top: 30px;
+  }
+
+  .gstepsGrid {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .gcolumn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .glearnMoreButton {
+    padding: 15px 30px;
+    font-size: 22px; /* Reduced button font size */
+  }
+}
+
 .footer {
   background-color: rgba(136, 230, 136, 1);
   padding: 20px 30px; /* Reduced padding to decrease height */
@@ -127,5 +158,4 @@
   margin-top: 10px; /* Reduced margin */
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8); /* Light white for copyright */
-}  /* <- Delete and retype this bracket */
-
+}

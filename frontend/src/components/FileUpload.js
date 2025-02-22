@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import upload from "../assets/upload.png";
+import { Link } from "react-router-dom"; // Import Link component for routing
 
 const FileUpload = () => {
   const [file, setFile] = useState(null); // Initialize state for file
@@ -10,96 +11,49 @@ const FileUpload = () => {
   };
 
   return (
-    <div style={styles.uploadContainer}>
-      <h3 style={styles.title}>Upload Files</h3>
-      <div style={styles.box}>
-        <img src={upload} alt="upload" style={styles.uploadImage} />
-        <p>Drag and Drop file</p>
-        <div className="OR" style={styles.OR}>
-          <p>OR</p>
-        </div>
-
+    <div className="bg-white p-6 rounded-lg w-full max-w-4xl mx-auto text-center overflow-hidden">
+      <h3 className="text-xl md:text-2xl font-bold mb-6">Upload Files</h3>
+      <div className="border-2 border-dashed border-gray-400 p-6 rounded-lg bg-green-100 mb-6">
+        <img
+          src={upload}
+          alt="upload"
+          className="h-24 md:h-32 mx-auto mb-4"
+        />
+        <p className="text-base md:text-lg">Drag and Drop file</p>
+        <div className="font-bold my-4">OR</div>
         <form>
-          {/* Hide the default file input */}
+          {/* Hidden file input */}
           <input
             type="file"
             onChange={handleFileChange}
             id="file-upload"
-            style={styles.hiddenInput}
+            className="hidden"
           />
-          
-          {/* Custom button to trigger file input */}
-          <label htmlFor="file-upload" style={styles.customButton}>
+          {/* Custom button */}
+          <label
+            htmlFor="file-upload"
+            className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg cursor-pointer text-base md:text-lg"
+          >
             Choose File
           </label>
         </form>
-        
         {/* Display chosen file */}
         {file && (
-          <div style={styles.fileInfo}>
+          <div className="mt-4 text-gray-700 text-base md:text-lg">
             <p>Chosen file: {file.name}</p>
           </div>
         )}
       </div>
-      <button style={styles.uploadButton}>Upload</button>
+
+      {/* Upload Button wrapped in Link */}
+      <Link
+        to="/fileupload" // Link to the upload page (change the path as per your route)
+        className="mt-6 inline-block px-8 py-3 bg-green-500 text-white rounded-lg text-base md:text-lg"
+      >
+        Upload
+      </Link>
     </div>
   );
-};
-
-const styles = {
-  uploadContainer: {
-    backgroundColor: "#fff",
-    padding: "20px",
-    borderRadius: "8px",
-    width: "80%",
-    margin: "0 auto",
-    textAlign: "center",
-    boxSizing: "border-box", // Ensures padding/border don't cause overflow
-    overflow: "hidden", // Prevents scrollbars if content overflows
-  },
-  title: { fontSize: "20px", marginBottom: "15px" },
-  box: {
-    border: "2px dashed #aaa",
-    padding: "20px",
-    borderRadius: "8px",
-    backgroundColor: "#e9f8e9",
-    marginBottom: "15px",
-    boxSizing: "border-box", // Prevent overflow due to padding/border
-  },
-  icon: { fontSize: "24px", marginBottom: "10px", display: "block" },
-  uploadButton: {
-    marginTop: "10px",
-    padding: "10px 30px",
-    backgroundColor: "#4caf50",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
-  customButton: {
-    display: "inline-block",
-    padding: "10px 20px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontSize: "16px",
-  },
-  hiddenInput: {
-    display: "none", // Hides the default file input
-  },
-  OR: {
-    fontWeight: "bold",
-  },
-  uploadImage: {
-    height: "100px",
-  },
-  fileInfo: {
-    marginTop: "10px",
-    fontSize: "16px",
-    color: "#333",
-  },
 };
 
 export default FileUpload;

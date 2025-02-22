@@ -35,7 +35,7 @@ const EcoCompassGuide = () => {
         </div>
       </div>
       <button className={styles.glearnMoreButton} tabIndex="0">
-        learn more
+        Sign Up
       </button>
     </div>
   );

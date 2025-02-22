@@ -1,0 +1,49 @@
+.esg-table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header styles */
+  .esg-table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  /* Row styles */
+  .esg-table tr:nth-child(even) {
+    background-color: #eaf8e6; /* Light green */
+  }
+  
+  .esg-table tr:nth-child(odd) {
+    background-color: #d9f1d0; /* Slightly darker green */
+  }
+  
+  /* Hover effect */
+  .esg-table tr:hover {
+    background-color: #c9eac0; /* Even darker green on hover */
+  }
+  
+  /* Cell styles */
+  .esg-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  /* Badge column link */
+  .badge-link {
+    color: green;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .badge-link:hover {
+    color: darkgreen;
+  }
+  

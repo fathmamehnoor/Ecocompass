@@ -2,10 +2,14 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework import status
+from rest_framework.views import APIView
 from django.contrib.auth import authenticate
-from .models import CustomUser
-from .serializers import RegisterSerializer, UserSerializer
+from .models import CustomUser, ESGAnalysis
+from .serializers import RegisterSerializer, UserSerializer, ESGAnalysisSerializer
+from .utils.bert_analysis import analyze_esg
 
 # Generate JWT tokens for a user
 def get_tokens_for_user(user):
@@ -43,3 +47,31 @@ def get_user_data(request):
     user = request.user
     serializer = UserSerializer(user)
     return Response(serializer.data)  # Corrected
+
+class ESGAnalysisView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, *args, **kwargs):
+        file = request.FILES.get('file')
+
+        if not file:
+            return Response({"error": "No file provided"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        analysis_result = analyze_esg(file)
+
+        esg_analyse = ESGAnalysis.objects.create(file_name=analysis_result["file_name"],
+                                                  esg_analysis=analysis_result["esg_analysis"],
+                                                  esg_score=analysis_result["esg_score"])
+        serializer = ESGAnalysisSerializer(esg_analyse)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+def latest_esg(request):
+    latest_entry = ESGAnalysis.objects.last()
+    if latest_entry:
+        return Response({
+            "file_name": latest_entry.file_name,
+            "esg_analysis": latest_entry.esg_analysis,
+            "esg_score": latest_entry.esg_score
+        })
+    else:
+        return Response({"error": "No ESG data found"}, status=404)

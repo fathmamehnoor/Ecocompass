@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from .models import ESGAnalysis
 
 User = get_user_model()
 
@@ -23,3 +24,9 @@ class RegisterSerializer(serializers.ModelSerializer):
             user_type=validated_data.get('user_type', 'Company')  # Default to 'Company' if not provided
         )
         return user
+
+
+class ESGAnalysisSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ESGAnalysis
+        fields = "__all__"

@@ -3,6 +3,7 @@ import AnalysisRatingCard from "../components/AnalysisRatingCard";
 import AnalysisESGRankCard from "../components/AnalysisESGRankCard";
 import AnalysisESGScoreCard from "../components/AnalysisESGScoreCard";
 import Headerfileupload from "../components/Headerfileupload";
+import SuggestionsCard from "../components/SuggestionsCard";
 
 const Analysis = () => {
   const [activeTab, setActiveTab] = React.useState("analysis");
@@ -29,9 +30,15 @@ const Analysis = () => {
         return <div className="content-wrapper">Badges content goes here...</div>;
       case "future":
         return (
-          <div className="content-wrapper">
-            Future Predictions content goes here...
-          </div>
+        
+            <div className="content-wrapper">
+              <div className="flex gap-4 max-md:flex-col">
+  
+              </div>
+              <div className="py-4 px-6 mt-4 bg-white shadow-sm max-md:px-4 max-md:w-full">
+                <SuggestionsCard />
+              </div>
+            </div>
         );
       default:
         return null;

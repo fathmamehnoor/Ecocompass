@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ecocompassapp.views import register_user, login_user, get_user_data, ESGAnalysisView
+from ecocompassapp.views import register_user, login_user, get_user_data, ESGAnalysisView, get_esg_suggestions
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('user/', get_user_data, name='user_data'),
     path("upload/", ESGAnalysisView.as_view(), name="upload"),
+    path("esg-suggestions/", get_esg_suggestions, name="esg-suggestions"),
 ]

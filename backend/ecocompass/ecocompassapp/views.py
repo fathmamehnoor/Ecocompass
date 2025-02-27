@@ -10,6 +10,11 @@ from django.contrib.auth import authenticate
 from .models import CustomUser, ESGAnalysis
 from .serializers import RegisterSerializer, UserSerializer, ESGAnalysisSerializer
 from .utils.bert_analysis import analyze_esg
+import google.generativeai as genai
+from django.conf import settings
+
+
+
 
 # Generate JWT tokens for a user
 def get_tokens_for_user(user):
@@ -75,3 +80,39 @@ def latest_esg(request):
         })
     else:
         return Response({"error": "No ESG data found"}, status=404)
+
+import google.generativeai as genai
+from django.conf import settings
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
+
+# Ensure the Gemini API key is set in settings.py
+genai.configure(api_key=settings.GEMINI_API_KEY)
+
+@api_view(['POST'])
+def get_esg_suggestions(request):
+    esg_score = request.data.get("esg_score")
+    esg_analysis = request.data.get("esg_analysis")
+
+    if esg_score is None or not esg_analysis:
+        return Response({"error": "Invalid data provided"}, status=status.HTTP_400_BAD_REQUEST)
+
+    prompt = f"""
+    The company has an ESG score of {esg_score}/100.
+    Here is the ESG analysis: {esg_analysis}.
+    Suggest specific actions the company can take to improve its ESG score.
+    Please provide clean, structured bullet points without symbols like *, **.
+    """
+
+    try:
+        model = genai.GenerativeModel("gemini-2.0-flash")  # Use Gemini Pro model
+        response = model.generate_content(prompt)
+
+        # Extract response text and split into suggestions
+        suggestions = response.text.split("\n")
+
+        return Response({"suggestions": suggestions}, status=status.HTTP_200_OK)
+
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

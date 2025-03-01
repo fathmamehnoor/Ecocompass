@@ -12,7 +12,7 @@ from .serializers import RegisterSerializer, UserSerializer, ESGAnalysisSerializ
 from .utils.bert_analysis import analyze_esg
 import google.generativeai as genai
 from django.conf import settings
-
+from rest_framework.decorators import api_view 
 
 
 
@@ -69,7 +69,10 @@ class ESGAnalysisView(APIView):
                                                   esg_score=analysis_result["esg_score"])
         serializer = ESGAnalysisSerializer(esg_analyse)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    
+
+
+@api_view(['GET'])  
+ 
 def latest_esg(request):
     latest_entry = ESGAnalysis.objects.last()
     if latest_entry:

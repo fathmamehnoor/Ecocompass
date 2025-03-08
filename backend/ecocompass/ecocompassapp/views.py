@@ -24,6 +24,7 @@ import joblib
 import pandas as pd
 
 
+from rest_framework.decorators import api_view 
 
 
 

@@ -91,8 +91,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ecocompass_db',
-        'USER': 'ecocompass_user',
-        'PASSWORD': 'ecocompasspass',
+        'USER': 'postgres',
+        'PASSWORD': 'user@123@123',
         'HOST': 'localhost',
         'PORT': '5432'
     }

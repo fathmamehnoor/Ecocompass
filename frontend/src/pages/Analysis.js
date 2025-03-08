@@ -4,6 +4,7 @@ import AnalysisESGRankCard from "../components/AnalysisESGRankCard";
 import AnalysisESGScoreCard from "../components/AnalysisESGScoreCard";
 import Headerfileupload from "../components/Headerfileupload";
 import SuggestionsCard from "../components/SuggestionsCard";
+import FuturePredictionCard from "../components/FuturePredictionCard"; // Import the form component
 
 const Analysis = () => {
   const [activeTab, setActiveTab] = React.useState("analysis");
@@ -30,15 +31,17 @@ const Analysis = () => {
         return <div className="content-wrapper">Badges content goes here...</div>;
       case "future":
         return (
-        
-            <div className="content-wrapper">
-              <div className="flex gap-4 max-md:flex-col">
-  
-              </div>
-              <div className="py-4 px-6 mt-4 bg-white shadow-sm max-md:px-4 max-md:w-full">
-                <SuggestionsCard />
-              </div>
+          <div className="content-wrapper">
+            <div className="py-4 px-6 mt-4 bg-white shadow-sm max-md:px-4 max-md:w-full">
+              <SuggestionsCard />
             </div>
+          </div>
+        );
+      case "future-revenue":
+        return (
+          <div className="content-wrapper flex justify-center">
+            <FuturePredictionCard />
+          </div>
         );
       default:
         return null;
@@ -62,10 +65,16 @@ const Analysis = () => {
           Badges
         </button>
         <button
-          className={`${activeTab === "future" ? "underline" : ""}`}
+          className={`mr-4 ${activeTab === "future" ? "underline" : ""}`}
           onClick={() => setActiveTab("future")}
         >
-          Future Predictions
+          Suggestions
+        </button>
+        <button
+          className={`${activeTab === "future-revenue" ? "underline" : ""}`}
+          onClick={() => setActiveTab("future-revenue")}
+        >
+          Future Revenue
         </button>
       </div>
       <div className="shrink-0 mt-4 max-w-full border border-black border-solid h-[3px] w-full" />

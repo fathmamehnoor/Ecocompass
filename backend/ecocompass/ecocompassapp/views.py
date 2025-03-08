@@ -12,6 +12,17 @@ from .serializers import RegisterSerializer, UserSerializer, ESGAnalysisSerializ
 from .utils.bert_analysis import analyze_esg
 import google.generativeai as genai
 from django.conf import settings
+import pickle
+import os
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+import numpy as np
+from sklearn.preprocessing import PowerTransformer
+import xgboost as xgb
+import joblib
+import pandas as pd
+
 
 
 
@@ -116,3 +127,54 @@ def get_esg_suggestions(request):
 
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "ecocompassapp/models/xgb_model.json")
+SCALER_PATH = os.path.join(BASE_DIR, "ecocompassapp/models/scaler.pkl")
+POWER_TRANSFORMER_PATH = os.path.join(BASE_DIR, "ecocompassapp/models/power_transformer.pkl")
+
+model = xgb.Booster()
+model.load_model(MODEL_PATH)  # Directly pass the path as a string
+
+
+scaler = joblib.load(SCALER_PATH)  # Load the scaler using joblib
+power_transformer = joblib.load(POWER_TRANSFORMER_PATH)  # Load the power transformer using joblib
+
+@csrf_exempt
+def predict_revenue(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            employees = float(data["employees"])
+            assets = float(data["assets"])
+            profits = float(data["profits"])
+            esg = float(data["esg"])
+            
+            # Create DataFrame with proper column order
+            input_df = pd.DataFrame({
+                "employees": [employees],
+                "profits": [profits], 
+                "assets": [assets], 
+                "esg": [esg]
+            })
+            
+            # Apply scaling
+            input_scaled = scaler.transform(input_df)
+            
+            # Convert to DMatrix
+            dmatrix = xgb.DMatrix(input_scaled)
+            
+            # Make prediction
+            predicted_revenue = model.predict(dmatrix)
+            
+            # Inverse transform
+            revenue = power_transformer.inverse_transform(predicted_revenue.reshape(-1, 1))
+            
+            # Return as JSON response
+            return JsonResponse({"revenue": float(revenue[0][0])})  # Note the [0][0] to get the actual value
+            
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
+    
+    return JsonResponse({"error": "Invalid request method"}, status=405)  # Method Not Allowed

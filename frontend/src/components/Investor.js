@@ -67,26 +67,24 @@ const Investor = () => {
   const navigate = useNavigate();
 
   return (
-    <Container>
-      <Headerfileupload/> {/* Replacing NavbarWrapper with the common header */}
-
-      <Hero>
-        <br></br>
-        <h1>"Smart Investments,<br /> Sustainable Impact"</h1>
-        <br>
-        </br>
-        <br>
-        </br>
-        <p>
-          EcoCompass puts the power of ESG investing at your fingertips.
-          Discover top-ranked sustainable companies and make smarter,
-          more impactful investment choices.
-        </p>
-        <br>
-        </br>
-        <Button onClick={() => navigate("/esg-ranking")}>View ESG Rankings</Button>
-      </Hero>
-    </Container>
+    <>
+      <Headerfileupload /> {/* Placed outside Container for full width */}
+      <Container>
+        <Hero>
+          <br></br>
+          <h1>"Smart Investments,<br /> Sustainable Impact"</h1>
+          <br></br>
+          <br></br>
+          <p>
+            EcoCompass puts the power of ESG investing at your fingertips.
+            Discover top-ranked sustainable companies and make smarter,
+            more impactful investment choices.
+          </p>
+          <br></br>
+          <Button onClick={() => navigate("/esg-ranking")}>View ESG Rankings</Button>
+        </Hero>
+      </Container>
+    </>
   );
 };
 

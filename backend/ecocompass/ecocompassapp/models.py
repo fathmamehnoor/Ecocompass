@@ -46,3 +46,15 @@ class ESGAnalysis(models.Model):
 
     def __str__(self):
         return f"{self.file_name} - ESG Analysis"
+
+
+
+
+class ESGCompany(models.Model):
+    name = models.CharField(max_length=255)
+    esg_score = models.FloatField()
+    sector = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+

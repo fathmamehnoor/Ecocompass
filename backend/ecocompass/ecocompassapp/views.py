@@ -13,8 +13,24 @@ from .utils.bert_analysis import analyze_esg
 import google.generativeai as genai
 from django.conf import settings
 from rest_framework.decorators import api_view 
+from .models import ESGCompany
+from .serializers import ESGCompanySerializer
 
+from rest_framework import generics
+#from .models import ESGCompany
+#from .serializers import ESGCompanySerializer
 
+#investorpage
+#class ESGCompanyListView(generics.ListAPIView):
+ #   queryset = ESGCompany.objects.all()
+  #  serializer_class = ESGCompanySerializer
+
+from .models import ESGCompany
+from .serializers import ESGCompanySerializer
+
+class ESGCompanyListView(generics.ListAPIView):
+    queryset = ESGCompany.objects.all()
+    serializer_class = ESGCompanySerializer
 
 # Generate JWT tokens for a user
 def get_tokens_for_user(user):
@@ -70,7 +86,6 @@ class ESGAnalysisView(APIView):
         serializer = ESGAnalysisSerializer(esg_analyse)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-
 @api_view(['GET'])  
  
 def latest_esg(request):
@@ -119,3 +134,5 @@ def get_esg_suggestions(request):
 
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+

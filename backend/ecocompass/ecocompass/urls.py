@@ -15,15 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from ecocompassapp.views import register_user, login_user, get_user_data, ESGAnalysisView, get_esg_suggestions,latest_esg
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('register/', register_user, name='register'),
     path('login/', login_user, name='login'),
     path('user/', get_user_data, name='user_data'),
     path("upload/", ESGAnalysisView.as_view(), name="upload"),
     path("esg-suggestions/", get_esg_suggestions, name="esg-suggestions"),
     path("api/latest-esg/", latest_esg, name="latest-esg"),
+    path('api/', include('ecocompassapp.urls')),
 ]
+
+

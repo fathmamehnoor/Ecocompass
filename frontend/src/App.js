@@ -9,6 +9,8 @@ import { CompanyHomePage } from "./pages/CompanyHomePage";
 import Analysis from "./pages/Analysis";
 import './styles/tailwind.css';
 import FileUpload from "./components/FileUpload";
+import { CallToAction } from "./components/CallToAction";
+import EcoCompassGuide from "./components/EcoCompassGuide";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/upload" element={<FileUpload />} />
         <Route path="/fileupload" element={<Analysis />} />
         <Route path="esgranking" element={<ESGRanking />} />
+        <Route path="/about" element={<CallToAction />} />
+        <Route path="/stepcard" element={<EcoCompassGuide />} />
 
       </Routes>
     </Router>

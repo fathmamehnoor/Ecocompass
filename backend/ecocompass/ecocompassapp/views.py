@@ -91,6 +91,14 @@ def latest_esg(request):
         return Response(ESGAnalysisSerializer(latest_entry).data)
     return Response({"error": "No ESG data found"}, status=status.HTTP_404_NOT_FOUND)
 
+@api_view(['GET'])
+def latest_logged_esg(request):
+    latest_entry = ESGAnalysis.objects.filter(user=request.user).last()
+    if latest_entry:
+        return Response({"esg_score": latest_entry.esg_score})
+    return Response({"error": "No ESG data found"}, status=status.HTTP_404_NOT_FOUND)
+
+
 # Generate ESG Suggestions using Gemini API
 @api_view(['POST'])
 def get_esg_suggestions(request):

@@ -3,7 +3,7 @@ import styles from '../styles/EcoCompass.module.css';
 import { Link } from "react-router-dom";
 export const CallToAction = () => {
   const handleGetStarted = () => {
-    window.location.href = '/onboarding';
+    window.location.href = '/stepcard';
   };
 
   return (

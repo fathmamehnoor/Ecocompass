@@ -44,7 +44,7 @@ class ESGAnalysis(models.Model):
     file_name = models.CharField(max_length=255)  # File name if applicable
     esg_analysis = models.JSONField()  # Store ESG category scores as JSON
     esg_score = models.FloatField()
-    # uploaded_at = models.DateTimeField(default=now)  # Auto timestamp
+    uploaded_at = models.DateTimeField(default=now)  # Auto timestamp
     
 
     def __str__(self):

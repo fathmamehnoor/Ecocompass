@@ -4,6 +4,7 @@ import CompanyHomePageScoreCard from "../components/CompanyHomePageScoreCard";
 import Headerfileupload from "../components/Headerfileupload";
 import { CompanyHomePageUploadSection } from "../components/CompanyHomePageUploadSection";
 import { FaArrowRight } from "react-icons/fa"; // Importing arrow icon
+import { Link } from "react-router-dom"; 
 
 export function CompanyHomePage() {
   const [hasEsgData, setHasEsgData] = React.useState(false);
@@ -47,19 +48,7 @@ export function CompanyHomePage() {
               No ESG data found. Please upload first.
             </p>
           )}
-        </div>
-
-        {/* Link Section */}
-        {hasEsgData && (
-          <div className="flex justify-center mt-10">
-            <a
-              href="#"
-              className="text-2xl font-semibold text-black-500 hover:text-black-600 flex items-center gap-2"
-            >
-              Current Analysis <FaArrowRight />
-            </a>
-          </div>
-        )}
+  
       </div>
       <CompanyHomePageUploadSection />
     </div>

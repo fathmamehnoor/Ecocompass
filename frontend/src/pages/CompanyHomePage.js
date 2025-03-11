@@ -48,7 +48,8 @@ export function CompanyHomePage() {
               No ESG data found. Please upload first.
             </p>
           )}
-  
+        </div>
+
       </div>
       <CompanyHomePageUploadSection />
     </div>

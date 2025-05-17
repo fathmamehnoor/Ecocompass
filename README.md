@@ -34,3 +34,6 @@ Backend:
 APIs:
 
 - Gemini API for recommendations
+
+Fine-tuned BERT for multilabel ESG classification:
+https://github.com/fathmamehnoor/esg-multilabel-classification
